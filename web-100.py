@@ -7,6 +7,7 @@ from datetime import datetime, date
 from database import engine, sessionLocal
 from sqlalchemy.orm import Session
 from sqlalchemy import sql
+import uvicorn
 
 app = FastAPI()
 
@@ -176,3 +177,5 @@ def updateUser(user_id:int, person:Person, db:Session = Depends(get_db)):
 def delete_alec(db:Session = Depends(get_db)):
     db.query(model.web_of_100).filter(model.web_of_100.id == 3).delete()
     db.commit()
+
+uvicorn.run(app=app,port=8000)
