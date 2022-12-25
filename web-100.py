@@ -178,4 +178,4 @@ def delete_alec(db:Session = Depends(get_db)):
     db.query(model.web_of_100).filter(model.web_of_100.id == 3).delete()
     db.commit()
 
-uvicorn.run(app=app,port=8000)
+
